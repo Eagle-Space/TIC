@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TicTacToe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="main">
+      <span id="turn">Play</span>
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+      <div class="box" id="box3"></div>
+      <div class="box" id="box4"></div>
+      <div class="box" id="box5"></div>
+      <div class="box" id="box6"></div>
+      <div class="box" id="box7"></div>
+      <div class="box" id="box8"></div>
+      <div class="box" id="box9"></div>
+    </div>
+    <button onclick="replay()">Play Again</button>
+
+    <script>
+
+const boxes = document.querySelectorAll(".box");
+const turnDisplay = document.querySelector("#turn");
+let X_or_O = 0;
+
+for (var i = 0; i < boxes.length; i++) {
+  boxes[i].onclick = function () {
+    if (this.innerHTML !== "X" && this.innerHTML !== "O") {
+      if (X_or_O % 2 === 0) {
+        console.log(X_or_O);
+        this.innerHTML = "X";
+        turnDisplay.innerHTML = "O Turn Now";
+        X_or_O += 1;
+      } else {
+        console.log(X_or_O);
+        this.innerHTML = "O";
+        turnDisplay.innerHTML = "X Turn Now";
+        X_or_O += 1;
+      }
+    }
+  };
+}
+    </script>
+  </body>
+</html>
